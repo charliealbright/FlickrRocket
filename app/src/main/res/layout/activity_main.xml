@@ -1,0 +1,134 @@
+<RelativeLayout
+    android:id="@+id/mainView"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:id="@+id/searchBarLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/searchTag"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="3"
+            android:layout_marginRight="16dp"
+            android:layout_marginEnd="16dp"
+            android:padding="10dp"
+            android:singleLine="true"
+            android:inputType="text"
+            android:imeOptions="actionGo"
+            android:selectAllOnFocus="true"
+            android:background="@drawable/edit_text_background"
+            android:hint="@string/search_bar_hint"/>
+
+        <Button
+            android:id="@+id/searchButton"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:text="Search!"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/button_backgound"
+            android:onClick="searchButtonClicked"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/navButtonLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true">
+
+        <Button
+            android:id="@+id/prevButton"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:layout_marginRight="16dp"
+            android:text="Previous"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/button_backgound"
+            android:onClick="prevButtonClicked"/>
+
+        <Button
+            android:id="@+id/nextButton"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:text="Next"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/button_backgound"
+            android:onClick="nextButtonClicked"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/imageDescription"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/navButtonLayout"
+        android:layout_marginTop="4dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginLeft="16dp"
+        android:padding="5dp"
+        android:gravity="center"
+        android:text="Description Text Here"
+        android:background="@drawable/edit_text_background"/>
+
+    <FrameLayout
+        android:id="@+id/imageBackdrop"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@id/searchBarLayout"
+        android:layout_above="@id/imageDescription"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:padding="10dp"
+        android:background="@drawable/image_background">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:adjustViewBounds="true"
+            android:onClick="imageViewClicked"/>
+
+    </FrameLayout>
+
+    <RelativeLayout
+        android:id="@+id/mainLoadingScreen"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="center"
+        android:background="#99000000">
+
+        <ProgressBar
+            android:id="@+id/loadingIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:indeterminate="true"/>
+
+        <TextView
+            android:id="@+id/loadingText"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/loadingIcon"
+            android:gravity="center"
+            android:text="Searching Flickr API..."
+            android:textSize="10pt"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>
